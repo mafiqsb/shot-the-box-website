@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "mafiqsb",
+    "password": null,
+    "database": "dummydataimages",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "mafiqsb",
+    "password": null,
+    "database": "dummydataimages",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "mafiqsb",
+    "password": null,
+    "database": "dummydataimages",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}

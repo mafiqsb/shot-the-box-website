@@ -1,0 +1,32 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.transition-container {
+  transition: height 1s ease; /* You can adjust the duration and timing function as needed */
+  overflow: hidden;
+}
+
+.hiddens {
+  height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.visible {
+  height: auto;
+  padding-top: 1rem; /* Adjust the top padding based on your layout */
+  padding-bottom: 1rem; /* Adjust the bottom padding based on your layout */
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
