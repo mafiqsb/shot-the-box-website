@@ -37,7 +37,7 @@ app.use('/api/upload', uploadRouter);
 app.use('/api/user', userRouter);
 app.use('/api/emailnotify', emailnotifyRouter);
 
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 10000;
 
 app.listen(port, () => {
   console.log(`server at http://localhost:${port}`);
