@@ -3,7 +3,7 @@ import React from 'react';
 export default function HomeScreens() {
   const userCount = 1000;
   const imageUploadCount = 500;
-  const imageUrl = 'https://example.com/sample-image.jpg';
+  // const imageUrl = 'https://example.com/sample-image.jpg';
   return (
     <div className="h-screen w-full justify-center items-center mx-auto ">
       <div className=" flex flex-col p-8 mx-auto ml-10 ">
