@@ -15,25 +15,15 @@ const app = express();
 
 // Serve frontend on /frontend route
 
-// app.use(express.static(path.join(__dirname, 'frontend', 'build')));
-// app.get('/frontend/*', (req, res) => {
-//   res.sendFile(path.join(__dirname, 'frontend', 'build', 'index.html'));
-// });
-
 app.use(express.static(path.join(__dirname, 'frontend', 'build')));
-app.get('../frontend/*', (req, res) => {
+app.get('/frontend', (req, res) => {
   res.sendFile(path.join(__dirname, 'frontend', 'build', 'index.html'));
 });
 
 // Serve frontend on /admin route
 
-// app.use(express.static(path.join(__dirname, 'admin', 'build')));
-// app.get('/admin/*', (req, res) => {
-//   res.sendFile(path.join(__dirname, 'admin', 'build', 'index.html'));
-// });
-
 app.use(express.static(path.join(__dirname, '/admin/build')));
-app.get('../admin/*', (req, res) => {
+app.get('/admin', (req, res) => {
   res.sendFile(path.join(__dirname, 'admin/build/index.html'));
 });
 
