@@ -13,5 +13,14 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "afiq sam",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mafiqsb/shot-the-box-website.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mafiqsb/shot-the-box-website/issues"
+  },
+  "homepage": "https://github.com/mafiqsb/shot-the-box-website#readme"
 }
