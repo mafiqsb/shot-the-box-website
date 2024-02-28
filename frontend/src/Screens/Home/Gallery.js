@@ -29,8 +29,8 @@ export default function Gallery() {
   useEffect(() => {
     const fetchAlbum = async () => {
       try {
-        const { data } = await axios.get(`/api/dataImages/`);
-        dispatch({ type: 'FETCH_SUCCESS', payload: data });
+        // const { data } = await axios.get(`/api/dataImages/`);
+        // dispatch({ type: 'FETCH_SUCCESS', payload: data });
       } catch (err) {
         dispatch({ type: 'FETCH_FAIL' });
         console.log(err);
