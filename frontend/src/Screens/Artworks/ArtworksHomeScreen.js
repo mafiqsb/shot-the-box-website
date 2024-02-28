@@ -79,8 +79,8 @@ export default function ArtworksHomeScreen() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // const result = await axios.get(`/api/dataImages/`);
-        // dispatch({ type: 'FETCH_SUCCESS', payload: result.data });
+        const result = await axios.get(`/api/dataImages/`);
+        dispatch({ type: 'FETCH_SUCCESS', payload: result.data });
       } catch (error) {
         dispatch({ type: 'FETCH_FAIL', payload: getError(error) });
         console.log('Request error:', error);
