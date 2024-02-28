@@ -7,7 +7,6 @@
   "version": "1.0.0",
   "description": "purpose for run build",
   "main": "index.js",
-  "devDependencies": {},
   "scripts": {
     "build": "cd backend && npm install && cd ../frontend && npm install && cd ../admin && npm install && npm run build",
     "start": "node backend/server.js",
