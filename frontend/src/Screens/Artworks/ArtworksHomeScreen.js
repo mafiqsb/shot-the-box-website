@@ -23,7 +23,6 @@ const reducer = (state, action) => {
       return { state };
   }
 };
-// https://github.com/mafiqsb/shot-the-box-website#readme
 
 export default function ArtworksHomeScreen() {
   // const params = useParams();
