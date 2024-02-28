@@ -34,7 +34,7 @@ if (process.env.DATABASE_URL) {
   // Fallback to individual connection parameters
   sequelize = new Sequelize(config.database, config.username, config.password, {
     ...config,
-    host: 'your-database-host.render.com', // Replace with your Render PostgreSQL host
+    host: 'dpg-cnfaf0icn0vc73e6os00-a', // Replace with your Render PostgreSQL host
     dialect: 'postgres',
     ssl: {
       rejectUnauthorized: false, // Set to false if using a self-signed certificate
