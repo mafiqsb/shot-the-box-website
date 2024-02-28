@@ -15,13 +15,13 @@ const __dirname = path.resolve();
 
 // Serve frontend on /frontend route
 app.use('/frontend', express.static(path.join(__dirname, 'frontend', 'build')));
-app.get('/frontend/*', (req, res) => {
+app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'frontend', 'build', 'index.html'));
 });
 
 // Serve admin on /admin route
 app.use('/admin', express.static(path.join(__dirname, 'admin', 'build')));
-app.get('/admin/*', (req, res) => {
+app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'admin', 'build', 'index.html'));
 });
 
