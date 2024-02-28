@@ -11,7 +11,7 @@ const emailnotifyRouter = require('./Routes/emailnotifyRoutes.js');
 dotenv.config();
 
 const app = express();
-// const __dirname = path.resolve();
+const __dirname = path.resolve();
 
 // Serve frontend on /frontend route
 app.use('/frontend', express.static(path.join(__dirname, 'frontend', 'build')));
