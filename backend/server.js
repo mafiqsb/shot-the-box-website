@@ -21,7 +21,7 @@ const app = express();
 // });
 
 app.use(express.static(path.join(__dirname, '/frontend/build')));
-app.get('/frontend/*', (req, res) => {
+app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '/frontend/build/index.html'));
 });
 
@@ -33,7 +33,7 @@ app.get('/frontend/*', (req, res) => {
 // });
 
 app.use(express.static(path.join(__dirname, '/admin/build')));
-app.get('/admin/*', (req, res) => {
+app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'admin/build/index.html'));
 });
 
