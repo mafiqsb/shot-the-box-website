@@ -31,7 +31,6 @@ try {
   // Test the database connection
   sequelize.authenticate();
 } catch (error) {
-  // If there's an error, send an error response
   console.error('Error connecting to the database:', error.message);
 }
 
