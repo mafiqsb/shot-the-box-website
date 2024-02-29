@@ -28,13 +28,12 @@ app.get('/admin/*', (req, res) => {
 
 // app.get('/api/test-database', async (req, res) => {
 try {
-  // Replace these with your actual database connection details
   const sequelize = new Sequelize(process.env.DATABASE_URL, {
     dialect: 'postgres',
     dialectOptions: {
       ssl: {
         require: true,
-        rejectUnauthorized: false, // Set to false if using a self-signed certificate
+        rejectUnauthorized: false,
       },
     },
   });
