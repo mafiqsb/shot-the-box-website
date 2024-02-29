@@ -7,24 +7,10 @@ const uploadRouter = require('./Routes/uploadRoutes.js');
 const userRouter = require('./Routes/userRoutes.js');
 const dotenv = require('dotenv');
 const emailnotifyRouter = require('./Routes/emailnotifyRoutes.js');
-
+const app = express();
 const { Sequelize } = require('sequelize');
 
 dotenv.config();
-
-const app = express();
-
-// Serve frontend on /frontend route
-app.use('/frontend', express.static(path.join(__dirname, 'frontend', 'build')));
-app.get('/frontend/*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'frontend', 'build', 'index.html'));
-});
-
-// Serve admin on /admin route
-app.use('/admin', express.static(path.join(__dirname, 'admin', 'build')));
-app.get('/admin/*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'admin', 'build', 'index.html'));
-});
 
 try {
   const sequelize = new Sequelize(process.env.DATABASE_URL, {
@@ -48,6 +34,18 @@ try {
   // If there's an error, send an error response
   console.error('Error connecting to the database:', error.message);
 }
+
+// Serve frontend on /frontend route
+app.use('/frontend', express.static(path.join(__dirname, 'frontend', 'build')));
+app.get('/frontend/*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'frontend', 'build', 'index.html'));
+});
+
+// Serve admin on /admin route
+app.use('/admin', express.static(path.join(__dirname, 'admin', 'build')));
+app.get('/admin/*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'admin', 'build', 'index.html'));
+});
 
 app.use(cors());
 app.use(express.json());
