@@ -5,7 +5,7 @@
   },
   "name": "stb_website",
   "version": "1.0.0",
-  "description": "purpose for run build",
+  "description": "purpose for run build and deploy on public",
   "main": "index.js",
   "scripts": {
     "build": "cd backend && npm install && cd ../frontend && npm install && cd ../admin && npm install && npm run build",
