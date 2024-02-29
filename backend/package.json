@@ -5,6 +5,7 @@
   "description": "backend for shot the box website",
   "main": "index.js",
   "scripts": {
+    "build": "npm run build",
     "start": "nodemon server.js",
     "migrate": "npx sequelize-cli db:migrate",
     "test": "echo \"Error: no test specified\" && exit 1"
