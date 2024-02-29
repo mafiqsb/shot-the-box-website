@@ -26,14 +26,13 @@ app.get('/admin/*', (req, res) => {
   res.sendFile(path.join(__dirname, 'admin', 'build', 'index.html'));
 });
 
-// app.get('/api/test-database', async (req, res) => {
 try {
   const sequelize = new Sequelize(process.env.DATABASE_URL, {
     port: 5432,
     database: 'stb_database_00s5',
     username: 'mafiqsb',
     password: '3rblukLeDWUmNIHxBJJxngf0RNCyGpDU',
-    host: 'dpg-cnfaf0icn0vc73e6os00-a.singapore-postgres.render.com',
+    host: 'dpg-cnfaf0icn0vc73e6os00-a',
     dialect: 'postgres',
     dialectOptions: {
       ssl: {
@@ -41,19 +40,14 @@ try {
         rejectUnauthorized: false,
       },
     },
+    logging: (msg) => console.log('[sequelize]', msg),
   });
-
   // Test the database connection
   sequelize.authenticate();
-
-  // If the connection is successful, send a success response
-  // res.status(200).json({ message: 'Database connection test successful' });
 } catch (error) {
   // If there's an error, send an error response
-  // console.error('Error connecting to the database:', error.message);
-  res.status(500).json({ error: 'Database connection test failed' });
+  console.error('Error connecting to the database:', error.message);
 }
-// });
 
 app.use(cors());
 app.use(express.json());
