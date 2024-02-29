@@ -38,13 +38,21 @@ try {
 // Serve frontend on /frontend route
 app.use('/frontend', express.static(path.join(__dirname, 'frontend', 'build')));
 app.get('/frontend/*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'frontend', 'build', 'index.html'));
+  try {
+    res.sendFile(path.join(__dirname, 'frontend', 'build', 'index.html'));
+  } catch (err) {
+    res.status(404).send({ message: 'error : ' + err });
+  }
 });
 
 // Serve admin on /admin route
 app.use('/admin', express.static(path.join(__dirname, 'admin', 'build')));
 app.get('/admin/*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'admin', 'build', 'index.html'));
+  try {
+    res.sendFile(path.join(__dirname, 'admin', 'build', 'index.html'));
+  } catch (err) {
+    res.status(404).send({ message: 'error : ' + err });
+  }
 });
 
 app.use(cors());
