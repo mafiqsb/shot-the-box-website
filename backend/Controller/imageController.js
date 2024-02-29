@@ -4,7 +4,7 @@ const ImageDetails = db.images;
 const homeScreenImages = async (req, res) => {
   try {
     const result = await ImageDetails.findAll();
-    console.log(result);
+
     res.status(200).send(result);
   } catch (err) {
     console.error(err); // Log the error for debugging
