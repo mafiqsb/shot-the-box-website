@@ -8,10 +8,7 @@
   "description": "purpose for run build and deploy on public",
   "main": "index.js",
   "scripts": {
-    "build:backend": "cd backend && npm install",
-    "build:frontend": "cd frontend && npm install && npm run build",
-    "build:admin": "cd admin && npm install && npm run build",
-    "build": "npm run build:backend && npm run build:frontend && npm run build:admin",
+    "build": "cd backend && npm install && cd ../frontend && npm install && npm run build && cd ../admin && npm install && npm run build",
     "start": "node backend/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -24,5 +21,6 @@
   },
   "bugs": {
     "url": "https://github.com/mafiqsb/shot-the-box-website/issues"
-  }
+  },
+  "homepage": "https://github.com/mafiqsb/shot-the-box-website"
 }
