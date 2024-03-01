@@ -20,7 +20,7 @@ try {
   if (process.env.NODE_ENV === 'production') {
     const sequelize = new Sequelize(process.env.DATABASE_URL, {
       port: 5432,
-      database: 'stb_database_00s5',
+      database: 'dummydataimages',
       username: 'mafiqsb',
       password: '3rblukLeDWUmNIHxBJJxngf0RNCyGpDU',
       host: 'dpg-cnfaf0icn0vc73e6os00-a',
