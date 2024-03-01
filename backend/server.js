@@ -64,28 +64,16 @@ try {
 }
 
 // Serve frontend on /frontend route
-
 app.use('/frontend', express.static(path.join(__dirname, './build')));
-app.get('*', (req, res) => {
-  try {
-    res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));
-    console.log('successful join');
-  } catch (err) {
-    res.status(404).send({ message: 'error : ' + err });
-    console.log({ message: 'error : ' + err });
-  }
-});
 
 // Serve admin on /admin route
-app.use('/admin', express.static(path.join(__dirname, './build')));
-app.get('*', (req, res) => {
-  try {
-    res.sendFile(path.join(__dirname, '../admin/build', 'index.html'));
-    console.log('successful join');
-  } catch (err) {
-    res.status(404).send({ message: 'error : ' + err });
-    console.log({ message: 'error : ' + err });
-  }
+app.use('/admin', express.static(path.join(__dirname, './admin/build')));
+
+// Additional routes or API endpoints can be added here
+
+// Fallback to index.html for any other routes (React Router handling)
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, './build', 'index.html'));
 });
 
 app.use(cors());
