@@ -14,7 +14,7 @@
     "dialect": "postgres"
   },
   "production": {
-    "host": "dpg-cnfaf0icn0vc73e6os00-a",
+    "host": "0.0.0.0",
     "use_env_variable": "DATABASE_URL",
     "dialect": "postgres",
     "dialectOptions": {
