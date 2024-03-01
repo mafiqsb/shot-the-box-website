@@ -13,50 +13,52 @@ const { Sequelize } = require('sequelize');
 dotenv.config();
 
 try {
-  const sequelize = new Sequelize(process.env.DATABASE_URL, {
-    port: 5432,
-    database: 'stb_database_00s5',
-    username: 'mafiqsb',
-    password: '3rblukLeDWUmNIHxBJJxngf0RNCyGpDU',
-    host: 'dpg-cnfaf0icn0vc73e6os00-a',
-    dialect: 'postgres',
-    dialectOptions: {
-      app: 'psql',
-      ssl: {
-        require: true,
-        rejectUnauthorized: false,
+  if (process.env.NODE_ENV === 'development') {
+    const sequelize = new Sequelize(process.env.DATABASE_URL, {
+      port: 5432,
+      database: 'stb_database_00s5',
+      username: 'mafiqsb',
+      password: '3rblukLeDWUmNIHxBJJxngf0RNCyGpDU',
+      host: 'dpg-cnfaf0icn0vc73e6os00-a',
+      dialect: 'postgres',
+      dialectOptions: {
+        app: 'psql',
+        ssl: {
+          require: true,
+          rejectUnauthorized: false,
+        },
       },
-    },
-    keepAlive: true, // Enable keep-alive
-    ssl: true,
-    logging: (msg) => console.log('[sequelize]', msg),
-    pool: {
-      max: 5,
-      min: 0,
-      acquire: 30000,
-      idle: 10000,
-    },
-  });
-
-  // Test the database connection
-  sequelize
-    .authenticate()
-    .then(() => {
-      console.log('Connection has been established successfully.');
-
-      // Additional logging for query execution
-      sequelize
-        .query('SELECT 1+1 AS result')
-        .then(([results]) => {
-          console.log('Query result:', results);
-        })
-        .catch((error) => {
-          console.error('Error executing query:', error);
-        });
-    })
-    .catch((error) => {
-      console.error('Unable to connect to the database:', error);
+      keepAlive: true, // Enable keep-alive
+      ssl: true,
+      logging: (msg) => console.log('[sequelize]', msg),
+      pool: {
+        max: 5,
+        min: 0,
+        acquire: 30000,
+        idle: 10000,
+      },
     });
+
+    // Test the database connection
+    sequelize
+      .authenticate()
+      .then(() => {
+        console.log('Connection has been established successfully.');
+
+        // Additional logging for query execution
+        sequelize
+          .query('SELECT 1+1 AS result')
+          .then(([results]) => {
+            console.log('Query result:', results);
+          })
+          .catch((error) => {
+            console.error('Error executing query:', error);
+          });
+      })
+      .catch((error) => {
+        console.error('Unable to connect to the database:', error);
+      });
+  }
 } catch (error) {
   console.error('Error connecting to the database:', error.message);
 }
