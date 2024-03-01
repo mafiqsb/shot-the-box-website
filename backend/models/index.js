@@ -9,35 +9,23 @@ const env = process.env.NODE_ENV || 'development';
 const config = require(__dirname + '/../config/config.json')[env];
 const db = {};
 
-// let sequelize;
-// if (config.use_env_variable && env !== 'production') {
-//   // For environments other than production, use the existing configuration
-//   sequelize = new Sequelize(process.env[config.use_env_variable], config);
-// } else if (env === 'production' && process.env.DATABASE_URL) {
-//   // For production environment, use the Render-provided DATABASE_URL
-//   sequelize = new Sequelize(process.env.DATABASE_URL, {
-//     dialect: 'postgres',
-//     dialectOptions: {
-//       ssl: {
-//         require: true,
-//         rejectUnauthorized: false,
-//       },
-//     },
-//   });
-// } else {
-//   // Fallback to the existing configuration
-//   sequelize = new Sequelize(
-//     config.database,
-//     config.username,
-//     config.password,
-//     config
-//   );
-// }
-
 let sequelize;
-if (config.use_env_variable) {
+if (config.use_env_variable && env !== 'production') {
+  // For environments other than production, use the existing configuration
   sequelize = new Sequelize(process.env[config.use_env_variable], config);
+} else if (env === 'production' && process.env.DATABASE_URL) {
+  // For production environment, use the Render-provided DATABASE_URL
+  sequelize = new Sequelize(process.env.DATABASE_URL, {
+    dialect: 'postgres',
+    dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false,
+      },
+    },
+  });
 } else {
+  // Fallback to the existing configuration
   sequelize = new Sequelize(
     config.database,
     config.username,
@@ -45,6 +33,18 @@ if (config.use_env_variable) {
     config
   );
 }
+
+// let sequelize;
+// if (config.use_env_variable) {
+//   sequelize = new Sequelize(process.env[config.use_env_variable], config);
+// } else {
+//   sequelize = new Sequelize(
+//     config.database,
+//     config.username,
+//     config.password,
+//     config
+//   );
+// }
 
 fs.readdirSync(__dirname)
   .filter((file) => {

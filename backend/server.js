@@ -10,6 +10,10 @@ const emailnotifyRouter = require('./Routes/emailnotifyRoutes.js');
 const app = express();
 const { Sequelize } = require('sequelize');
 
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 dotenv.config();
 
 try {
@@ -86,10 +90,6 @@ app.get('/admin/', (req, res) => {
     console.log({ message: 'error : ' + err });
   }
 });
-
-app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
 app.use('/api/dataImages', imageRouter);
 app.use('/api/seed', seedRouter);
