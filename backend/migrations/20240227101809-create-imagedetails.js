@@ -21,7 +21,7 @@ module.exports = {
       descriptions: {
         type: Sequelize.STRING,
       },
-      moreImages: {
+      moreimages: {
         type: Sequelize.STRING,
       },
       confirmimages: {
