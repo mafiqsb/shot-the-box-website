@@ -64,8 +64,8 @@ try {
 }
 
 // Serve frontend on /frontend route
-app.use(express.static(path.join(__dirname, 'frontend', 'build')));
-app.get('/*', (req, res) => {
+app.use(express.static(path.join(__dirname, '../frontend/build')));
+app.get('/', (req, res) => {
   try {
     res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));
     console.log('Serving file: /frontend');
@@ -76,8 +76,8 @@ app.get('/*', (req, res) => {
 });
 
 // Serve admin on /admin route
-app.use(express.static(path.join(__dirname, 'admin', 'build')));
-app.get('/admin/*', (req, res) => {
+app.use(express.static(path.join(__dirname, '../admin/build')));
+app.get('/admin/', (req, res) => {
   try {
     res.sendFile(path.join(__dirname, '../admin/build', 'index.html'));
     console.log('Serving file: /admin');
