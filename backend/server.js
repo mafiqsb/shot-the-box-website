@@ -12,53 +12,53 @@ const { Sequelize } = require('sequelize');
 
 dotenv.config();
 
-app.get('/api/test-database', async (req, res) => {
-  try {
-    const sequelize = new Sequelize(process.env.DATABASE_URL, {
-      port: 5432,
-      database: 'stb_database_00s5',
-      username: 'mafiqsb',
-      password: '3rblukLeDWUmNIHxBJJxngf0RNCyGpDU',
-      host: 'dpg-cnfaf0icn0vc73e6os00-a',
-      dialect: 'postgres',
-      dialectOptions: {
-        ssl: {
-          require: true,
-          rejectUnauthorized: false,
-        },
-        keepAlive: true,
+// app.get('/api/test-database', async (req, res) => {
+try {
+  const sequelize = new Sequelize(process.env.DATABASE_URL, {
+    port: 5432,
+    database: 'stb_database_00s5',
+    username: 'mafiqsb',
+    password: '3rblukLeDWUmNIHxBJJxngf0RNCyGpDU',
+    host: 'dpg-cnfaf0icn0vc73e6os00-a',
+    dialect: 'postgres',
+    dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false,
       },
-      logging: (msg) => console.log('[sequelize]', msg),
-      pool: {
-        max: 3,
-        min: 1,
-        idle: 10000,
-      },
-    });
-    // Test the database connection
-    sequelize
-      .authenticate()
-      .then(() => {
-        console.log('Connection has been established successfully.');
-        res.send('Connection has been established successfully.');
+      keepAlive: true,
+    },
+    logging: (msg) => console.log('[sequelize]', msg),
+    pool: {
+      max: 3,
+      min: 1,
+      idle: 10000,
+    },
+  });
+  // Test the database connection
+  sequelize
+    .authenticate()
+    .then(() => {
+      console.log('Connection has been established successfully.');
+      res.send('Connection has been established successfully.');
 
-        // Additional logging for query execution
-        sequelize
-          .query('SELECT 1+1 AS result')
-          .then(([results]) => {
-            console.log('Query result:', results);
-          })
-          .catch((error) => {
-            console.error('Error executing query:', error);
-          });
-      })
-      .catch((error) => {
-        console.error('Unable to connect to the database:', error);
-      });
-  } catch (error) {
-    console.error('Error connecting to the database:', error.message);
-  }
-});
+      // Additional logging for query execution
+      sequelize
+        .query('SELECT 1+1 AS result')
+        .then(([results]) => {
+          console.log('Query result:', results);
+        })
+        .catch((error) => {
+          console.error('Error executing query:', error);
+        });
+    })
+    .catch((error) => {
+      console.error('Unable to connect to the database:', error);
+    });
+} catch (error) {
+  console.error('Error connecting to the database:', error.message);
+}
+// });
 
 // Serve frontend on /frontend route
 app.use('/frontend', express.static(path.join(__dirname, './build')));
