@@ -80,7 +80,7 @@ app.use('/admin', express.static(path.join(__dirname, './admin/build')));
 app.get('/admin/*', (req, res) => {
   try {
     res.sendFile(path.join(__dirname, './admin/build', 'index.html'));
-    console.log('successful join');
+    console.log({ message: sendFile() });
   } catch (err) {
     res.status(404).send({ message: 'error : ' + err });
     console.log({ message: 'error : ' + err });
