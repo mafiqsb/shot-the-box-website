@@ -7,37 +7,37 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       names: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       images: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       slug: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       descriptions: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       moreImages: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
-      confirmImages: {
-        type: Sequelize.STRING
+      confirmimages: {
+        type: Sequelize.STRING,
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('imagedetails');
-  }
+  },
 };
