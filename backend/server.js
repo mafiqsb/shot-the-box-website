@@ -63,15 +63,30 @@ try {
   console.error('Error connecting to the database:', error.message);
 }
 
-app.use(express.static(path.join(__dirname, '/frontend/build')));
-app.get('/*', (req, res) =>
-  res.sendFile(path.join(__dirname, '/frontend/build/index.html'))
-);
+// Serve frontend on /frontend route
 
-app.use(express.static(path.join(__dirname, '/admin/build')));
-app.get('/admin/*', (req, res) =>
-  res.sendFile(path.join(__dirname, '/admin/build/index.html'))
-);
+app.use('/', express.static(path.join(__dirname, './build')));
+app.get('*', (req, res) => {
+  try {
+    res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));
+    console.log('successful join');
+  } catch (err) {
+    res.status(404).send({ message: 'error : ' + err });
+    console.log({ message: 'error : ' + err });
+  }
+});
+
+// Serve admin on /admin route
+app.use('/admin', express.static(path.join(__dirname, './build')));
+app.get('*', (req, res) => {
+  try {
+    res.sendFile(path.join(__dirname, '../admin/build', 'index.html'));
+    console.log('successful join');
+  } catch (err) {
+    res.status(404).send({ message: 'error : ' + err });
+    console.log({ message: 'error : ' + err });
+  }
+});
 
 app.use(cors());
 app.use(express.json());
