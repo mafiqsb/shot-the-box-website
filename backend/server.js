@@ -65,8 +65,8 @@ try {
 
 // Serve frontend on /frontend route
 
-app.use('/', express.static(path.join(__dirname, './build')));
-app.get('*', (req, res) => {
+app.use('/frontend', express.static(path.join(__dirname, './build')));
+app.get('/*', (req, res) => {
   try {
     res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));
     console.log('successful join');
@@ -78,7 +78,7 @@ app.get('*', (req, res) => {
 
 // Serve admin on /admin route
 app.use('/admin', express.static(path.join(__dirname, './build')));
-app.get('*', (req, res) => {
+app.get('/admin/*', (req, res) => {
   try {
     res.sendFile(path.join(__dirname, '../admin/build', 'index.html'));
     console.log('successful join');
