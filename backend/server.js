@@ -69,8 +69,7 @@ app.use('/api/user', userRouter);
 app.use('/api/emailnotify', emailnotifyRouter);
 
 const port = process.env.PORT || 8000;
-const host = process.env.HOST || '0.0.0.0';
 
-app.listen(port, host, () => {
-  console.log(`server at http://${host}:${port}`);
+app.listen(port, () => {
+  console.log(`server at http://:${port}`);
 });
