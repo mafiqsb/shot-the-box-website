@@ -64,11 +64,11 @@ try {
 }
 
 // Serve frontend on /frontend route
-app.use('/frontend', express.static(path.join(__dirname, './frontend/build')));
+app.use(express.static(path.join(__dirname, './frontend/build')));
 app.get('/*', (req, res) => {
   try {
     res.sendFile(path.join(__dirname, './frontend/build', 'index.html'));
-    console.log('Serving file:', filePath);
+    console.log('Serving file:', filePath());
   } catch (err) {
     res.status(404).send({ message: 'error : ' + err });
     console.log({ message: 'error : ' + err });
@@ -76,11 +76,11 @@ app.get('/*', (req, res) => {
 });
 
 // Serve admin on /admin route
-app.use('/admin', express.static(path.join(__dirname, './admin/build')));
+app.use(express.static(path.join(__dirname, './admin/build')));
 app.get('/admin/*', (req, res) => {
   try {
     res.sendFile(path.join(__dirname, './admin/build', 'index.html'));
-    console.log('Serving file:', filePath);
+    console.log('Serving file:', filePath());
   } catch (err) {
     res.status(404).send({ message: 'error : ' + err });
     console.log({ message: 'error : ' + err });
