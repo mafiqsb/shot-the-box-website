@@ -68,7 +68,7 @@ app.use('/frontend', express.static(path.join(__dirname, './frontend/build')));
 app.get('/*', (req, res) => {
   try {
     res.sendFile(path.join(__dirname, './frontend/build', 'index.html'));
-    console.log('successful join');
+    console.log('Serving file:', filePath);
   } catch (err) {
     res.status(404).send({ message: 'error : ' + err });
     console.log({ message: 'error : ' + err });
@@ -80,7 +80,7 @@ app.use('/admin', express.static(path.join(__dirname, './admin/build')));
 app.get('/admin/*', (req, res) => {
   try {
     res.sendFile(path.join(__dirname, './admin/build', 'index.html'));
-    console.log({ message: sendFile() });
+    console.log('Serving file:', filePath);
   } catch (err) {
     res.status(404).send({ message: 'error : ' + err });
     console.log({ message: 'error : ' + err });
