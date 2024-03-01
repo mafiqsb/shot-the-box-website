@@ -15,8 +15,9 @@
   },
   "production": {
     "username": "mafiqsb",
-    "host": "dpg-cnfaf0icn0vc73e6os00-a",
-    "use_env_variable": "DATABASE_URL",
+    "password": "3rblukLeDWUmNIHxBJJxngf0RNCyGpDU",
+    "database": "stb_database_00s5",
+    "host": "dpg-cnfaf0icn0vc73e6os00-a.singapore-postgres.render.com",
     "dialect": "postgres",
     "dialectOptions": {
       "ssl": { "require": true, "rejectUnauthorized": false }
