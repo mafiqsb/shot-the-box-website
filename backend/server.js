@@ -13,7 +13,7 @@ const { Sequelize } = require('sequelize');
 dotenv.config();
 
 try {
-  if (process.env.NODE_ENV === 'development') {
+  if (process.env.NODE_ENV === 'production') {
     const sequelize = new Sequelize(process.env.DATABASE_URL, {
       port: 5432,
       database: 'stb_database_00s5',
