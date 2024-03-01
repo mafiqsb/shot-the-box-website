@@ -28,6 +28,7 @@ try {
       },
       keepAlive: true,
     },
+    ssl: true,
     logging: (msg) => console.log('[sequelize]', msg),
     pool: {
       max: 3,
