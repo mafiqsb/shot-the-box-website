@@ -22,7 +22,7 @@ try {
       host: 'dpg-cnfaf0icn0vc73e6os00-a',
       dialect: 'postgres',
       dialectOptions: {
-        app: 'psql',
+        application_name: 'psql',
         ssl: {
           require: true,
           rejectUnauthorized: false,
@@ -66,7 +66,7 @@ try {
 // Serve frontend on /frontend route
 
 app.use('/frontend', express.static(path.join(__dirname, './build')));
-app.get('/frontend/*', (req, res) => {
+app.get('/', (req, res) => {
   try {
     res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));
     console.log('successful join');
@@ -78,7 +78,7 @@ app.get('/frontend/*', (req, res) => {
 
 // Serve admin on /admin route
 app.use('/admin', express.static(path.join(__dirname, './build')));
-app.get('/admin/*', (req, res) => {
+app.get('/admin', (req, res) => {
   try {
     res.sendFile(path.join(__dirname, '../admin/build', 'index.html'));
     console.log('successful join');
