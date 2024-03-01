@@ -64,7 +64,7 @@ try {
 }
 
 // Serve frontend on /frontend route
-app.use('/frontend', express.static(path.join(__dirname, 'frontend', 'build')));
+app.use(express.static(path.join(__dirname, 'frontend', 'build')));
 app.get('/*', (req, res) => {
   try {
     res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));
