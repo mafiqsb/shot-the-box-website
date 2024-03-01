@@ -14,7 +14,8 @@
     "dialect": "postgres"
   },
   "production": {
-    "host": "0.0.0.0",
+    "username": "mafiqsb",
+    "host": "stb_database_00s5",
     "use_env_variable": "DATABASE_URL",
     "dialect": "postgres",
     "dialectOptions": {
