@@ -40,7 +40,7 @@ try {
     .authenticate()
     .then(() => {
       console.log('Connection has been established successfully.');
-      res.send('Connection has been established successfully.');
+      // res.send('Connection has been established successfully.');
 
       // Additional logging for query execution
       sequelize
