@@ -16,7 +16,7 @@
   "production": {
     "username": "mafiqsb",
     "password": "3rblukLeDWUmNIHxBJJxngf0RNCyGpDU",
-    "database": "dummydataimages",
+    "database": "stb_database_00s5",
     "host": "dpg-cnfaf0icn0vc73e6os00-a.singapore-postgres.render.com",
     "dialect": "postgres",
     "dialectOptions": {
