@@ -63,14 +63,22 @@ export default function ArtworksPageScreen() {
           <div className="xl:w-[1240px] lg:w-[800px] md:w-[600px]  mx-auto flex flex-col textstwo  md:mt-36 pb-24 mt-24">
             <div className="gallery">
               {images.confirmimages &&
-                images.confirmimages.map((image, index) => (
-                  <img
-                    src={image}
-                    alt={index}
-                    key={index}
-                    className="pt-2 pb-2 hover:scale-125 duration-300"
-                  />
-                ))}
+                images.confirmimages.map((image, index) => {
+                  try {
+                    // const imageUrl = JSON.parse(image);
+                    return (
+                      <img
+                        src={image}
+                        alt={index}
+                        key={index}
+                        className="pt-2 pb-2 hover:scale-125 duration-300"
+                      />
+                    );
+                  } catch (error) {
+                    console.error('Error parsing image URL:', error);
+                    return null;
+                  }
+                })}
             </div>
           </div>{' '}
         </>

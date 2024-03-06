@@ -1,3 +1,4 @@
+const { Sequelize } = require('sequelize');
 const db = require('../models');
 const ImageDetails = db.images;
 
@@ -14,23 +15,33 @@ const homeScreenImages = async (req, res) => {
 
 const createAlbum = async (req, res) => {
   try {
-    const { names, images, slug, descriptions, moreImages, confirmImages } =
-      req.body;
+    const names = req.body.names;
+    const images = req.body.images;
+    const slug = req.body.slug;
+    const descriptions = req.body.descriptions;
+    const moreimages = req.body.moreimages;
+    const confirmimages = req.body.confirmimages;
 
     const result = await ImageDetails.create({
       names,
       images,
       slug,
       descriptions,
-      moreImages,
-      confirmImages,
+      moreimages: Sequelize.literal(
+        `ARRAY[${confirmimages.map((item) => `'${item}'`).join(',')}]::text[]`
+      ),
+
+      confirmimages: Sequelize.literal(
+        `ARRAY[${confirmimages.map((item) => `'${item}'`).join(',')}]::text[]`
+      ),
     });
 
     res
       .status(200)
-      .send({ message: 'Album successfully created', data: result });
+      .send({ message: 'Album successfully created', data: result.rows });
   } catch (err) {
-    console.error(err);
+    console.error(err.message); // Log the error message
+    console.error(err.stack); // Log the stack trace
     res.status(500).send({ message: 'Failed to create album' });
   }
 };
@@ -103,7 +114,7 @@ const pageScreenImages = async (req, res) => {
 const editAlbum = async (req, res) => {
   try {
     const id = req.params.id;
-    const { names, images, slug, descriptions, confirmImages } = req.body;
+    const { names, images, slug, descriptions, confirmimages } = req.body;
 
     const recordToUpdate = await ImageDetails.findByPk(id);
 
@@ -117,7 +128,9 @@ const editAlbum = async (req, res) => {
       images,
       slug,
       descriptions,
-      confirmImages,
+      confirmimages: Sequelize.literal(
+        `ARRAY[${confirmimages.map((item) => `'${item}'`).join(',')}]::text[]`
+      ),
     });
 
     res.json({ message: 'Image updated successfully' });
@@ -151,22 +164,22 @@ module.exports = {
 // };
 
 // const create_album = async (req, res) => {
-//   try {
-//     const names = req.body.names;
-//     const images = req.body.images;
-//     const slug = req.body.slug;
-//     const descriptions = req.body.descriptions;
-//     const moreImages = req.body.moreImages;
-//     const confirmImages = req.body.confirmImages;
+// try {
+//   const names = req.body.names;
+//   const images = req.body.images;
+//   const slug = req.body.slug;
+//   const descriptions = req.body.descriptions;
+//   const moreImages = req.body.moreImages;
+//   const confirmImages = req.body.confirmImages;
 
-//     const values = [
-//       names,
-//       images,
-//       slug,
-//       descriptions,
-//       moreImages,
-//       confirmImages,
-//     ];
+//   const values = [
+//     names,
+//     images,
+//     slug,
+//     descriptions,
+//     moreImages,
+//     confirmImages,
+//   ];
 
 //     const query =
 //       'INSERT INTO imagedetails(names, images, slug, descriptions, moreImages, confirmImages) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *';

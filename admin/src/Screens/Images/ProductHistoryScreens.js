@@ -92,9 +92,9 @@ export default function ProductHistoryScreens() {
         dispatch({ type: 'FETCH_SUCCESS', payload: data });
         return;
       } catch (err) {
-        window.location.href = '/admin/signin';
-        localStorage.removeItem('user_info');
-        ctxDispatch({ type: 'USER_SIGNOUT' });
+        // window.location.href = '/admin/signin';
+        // localStorage.removeItem('user_info');
+        // ctxDispatch({ type: 'USER_SIGNOUT' });
         console.log('Request error:', err.message);
       }
     };
@@ -303,7 +303,7 @@ export default function ProductHistoryScreens() {
     <div className="h-screen justify-center items-center mx-auto">
       <div className="flex flex-col p-8">
         <h1 className="md:text-3xl text-md font-bold p-1">History Album</h1>
-        <div className="mx-auto mt-[50px] xl:w-[1000px] lg:w-[900px] md:w-[600px] sm:w[500px] w-[350px]">
+        <div className="mx-auto mt-[50px] xl:w-[1200px] lg:w-[900px] md:w-[600px] sm:w[500px] w-[350px]">
           <div className="shadow-md sm:rounded-lg lg:overflow-hidden overflow-x-auto">
             {loading ? (
               <div className="mt-24">
@@ -383,15 +383,30 @@ export default function ProductHistoryScreens() {
                           >
                             {Array.isArray(data.confirmimages) &&
                               data.confirmimages.length >= 3 &&
-                              data.confirmimages.map((img, index) => (
-                                <div
-                                  key={img}
-                                  className="mr-2 "
-                                  style={{ display: 'inline-block' }}
-                                >
-                                  <img src={img} className="w-8" alt={index} />
-                                </div>
-                              ))}
+                              data.confirmimages.map((img, index) => {
+                                try {
+                                  // const imageUrl = JSON.parse(img);
+                                  return (
+                                    <div
+                                      key={index}
+                                      className="mr-2 "
+                                      style={{ display: 'inline-block' }}
+                                    >
+                                      <img
+                                        src={img}
+                                        className="w-8"
+                                        alt={index}
+                                      />
+                                    </div>
+                                  );
+                                } catch (error) {
+                                  console.error(
+                                    'Error parsing image URL:',
+                                    error
+                                  );
+                                  return null;
+                                }
+                              })}
                           </div>
                         </td>
 
@@ -429,7 +444,7 @@ export default function ProductHistoryScreens() {
                   className={x + 1 === Number(page) ? ' font-bold' : ''}
                   style={{ margin: '0 7px' }}
                   key={x + 1}
-                  to={`/admin/album/historyAlbum?page=${x + 1}`}
+                  to={`/album/historyAlbum?page=${x + 1}`}
                 >
                   {x + 1}
                 </Link>
@@ -636,34 +651,42 @@ export default function ProductHistoryScreens() {
 
                 <div className="mb-5 md:w-[400px] mx-auto">
                   {Array.isArray(editImagePortfolio) &&
-                    editImagePortfolio.map((img, index) => (
-                      <div
-                        className="mx-auto flex justify-between mb-3"
-                        key={index}
-                      >
-                        <div className="flex flex-row">
-                          <p className="mr-4">{index + 1}. </p>
-                          <img
-                            alt={img.name}
-                            src={img.url ? img.url : img}
-                            className="w-[30px]"
-                          ></img>
-                          <p className="ml-4">
-                            <strong>{img.name}</strong>
-                          </p>
-                        </div>
-                        <div>
-                          <button
-                            type="button"
-                            className="bg-red-500 sm:mx-0 md:text-lg text-sm text-white rounded-md border-solid border-1px font-bold w-[100px] hover:bg-red-600 duration-300"
-                            value={img}
-                            onClick={() => deletePortfolioImgHandler(img)}
+                    editImagePortfolio.map((img, index) => {
+                      try {
+                        // const imageUrl = JSON.parse(img.url || img);
+                        return (
+                          <div
+                            key={index}
+                            className="mx-auto flex justify-between mb-3"
                           >
-                            delete
-                          </button>
-                        </div>
-                      </div>
-                    ))}
+                            <div className="flex flex-row">
+                              <p className="mr-4">{index + 1}. </p>
+                              <img
+                                alt={img.name}
+                                src={img.url ? img.url : img}
+                                className="w-[30px]"
+                              />
+                              <p className="ml-4">
+                                <strong>{img.name}</strong>
+                              </p>
+                            </div>
+                            <div>
+                              <button
+                                type="button"
+                                className="bg-red-500 sm:mx-0 md:text-lg text-sm text-white rounded-md border-solid border-1px font-bold w-[100px] hover:bg-red-600 duration-300"
+                                value={img}
+                                onClick={() => deletePortfolioImgHandler(img)}
+                              >
+                                delete
+                              </button>
+                            </div>
+                          </div>
+                        );
+                      } catch (error) {
+                        console.error('Error parsing image URL:', error);
+                        return null;
+                      }
+                    })}
                 </div>
 
                 <div className=" border-b  mt-14 mb-10"></div>

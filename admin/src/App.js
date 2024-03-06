@@ -19,7 +19,7 @@ function App() {
         />
         <Routes>
           <Route path="*" element={<Center />} />
-          <Route path="/admin/signin" element={<SignIn />} />
+          <Route path="/signin" element={<SignIn />} />
         </Routes>
       </div>
     </BrowserRouter>

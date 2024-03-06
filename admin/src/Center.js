@@ -28,7 +28,7 @@ export default function Center() {
         >
           <Routes>
             <Route
-              path="/admin/album/uploadAlbum"
+              path="/album/uploadAlbum"
               element={
                 <ProtectedRoute>
                   <ProductUploadScreens />
@@ -37,7 +37,7 @@ export default function Center() {
             />
 
             <Route
-              path="/admin/album/historyAlbum"
+              path="/album/historyAlbum"
               element={
                 <ProtectedRoute>
                   <ProductHistoryScreens />
@@ -45,7 +45,7 @@ export default function Center() {
               }
             />
             <Route
-              path="/admin/subscriberslist"
+              path="/subscriberslist"
               element={
                 <ProtectedRoute>
                   <SubscribersEmail />
@@ -53,10 +53,10 @@ export default function Center() {
               }
             />
 
-            <Route path="/admin/writeblog" element={<UploadBlog />} />
+            <Route path="/writeblog" element={<UploadBlog />} />
 
             <Route
-              path="/admin/signup"
+              path="/signup"
               element={
                 <ProtectedRoute>
                   <SignUp />
@@ -65,7 +65,7 @@ export default function Center() {
             />
 
             <Route
-              path="/admin/"
+              path="/"
               element={
                 <ProtectedRoute>
                   <HomeScreens />

@@ -4,6 +4,7 @@ import React, { useContext, useEffect, useRef, useState } from 'react';
 import { Store } from '../../Store';
 
 import { toast } from 'react-toastify';
+import { getError } from '../../utils';
 
 const MAX_COUNT = 15;
 
@@ -175,8 +176,8 @@ export default function ProductUploadScreens() {
           images: result ? result.data.secure_url : '',
           slug: slugUpdated,
           descriptions: descrUpdated,
-          moreImages: imagesUpdated,
-          confirmImages: data.map((i) => i.secure_url),
+          moreimages: imagesUpdated,
+          confirmimages: data.map((i) => i.secure_url),
         },
         {
           headers: { Authorization: `Bearer ${userInfo.token}` },
@@ -194,11 +195,11 @@ export default function ProductUploadScreens() {
       deleteButton.disabled = false;
       deleteButton.style.cursor = 'auto';
     } catch (err) {
-      window.location.href = '/admin/signin';
-      localStorage.removeItem('user_info');
-      ctxDispatch({ type: 'USER_SIGNOUT' });
+      // window.location.href = '/admin/signin';
+      // localStorage.removeItem('user_info');
+      // ctxDispatch({ type: 'USER_SIGNOUT' });
       console.error(err.message);
-      toast.error(err.message);
+      toast.error(getError(err));
     }
   };
 

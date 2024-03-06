@@ -23,9 +23,11 @@ module.exports = {
       },
       moreimages: {
         type: Sequelize.STRING,
+        allowNull: true,
       },
       confirmimages: {
         type: Sequelize.STRING,
+        allowNull: true,
       },
       createdAt: {
         allowNull: false,

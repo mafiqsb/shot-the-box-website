@@ -30,7 +30,7 @@ export default function Navbars({ sideBar, setSidebar }) {
   const signoutHandler = () => {
     localStorage.removeItem('user_info');
     ctxDispatch({ type: 'USER_SIGNOUT' });
-    window.location.href = '/admin/signin';
+    window.location.href = '/signin';
   };
 
   return (
@@ -61,7 +61,7 @@ export default function Navbars({ sideBar, setSidebar }) {
               <Link to="/editprofile">Edit Portfolio</Link>
             </Dropdown.Item>
             <Dropdown.Item className="block px-4 py-2 text-gray-800 hover:bg-[#D3D3D3] hover:text-white">
-              <Link to="/admin/signup">Sign Up as Admin</Link>
+              <Link to="/signup">Sign Up as Admin</Link>
             </Dropdown.Item>
             <Dropdown.Item className="block px-4 py-2 bg-[#ECECEC] text-gray-800 hover:bg-[#D3D3D3] hover:rounded-b-lg rounded-b-lg hover:text-white">
               <Link to="/signout" onClick={signoutHandler}>
@@ -93,7 +93,7 @@ export default function Navbars({ sideBar, setSidebar }) {
           <div className="mt-6 text-left">
             <ul>
               <div>
-                <Link to="/admin/" className="p-4">
+                <Link to="/" className="p-4">
                   <li className="pb-4 pl-4 pt-4 border-b-2 mx-4 hover:bg-[#D3D3D3]">
                     Dashboard
                   </li>
@@ -109,24 +109,24 @@ export default function Navbars({ sideBar, setSidebar }) {
                   albumClick ? 'ml-5 visible' : 'hiddens'
                 }`}
               >
-                <Link to="/admin/album/uploadAlbum" className="p-4">
+                <Link to="/album/uploadAlbum" className="p-4">
                   <li className="pb-4 pl-4 pt-4 border-b-2 mx-4 hover:bg-[#D3D3D3]">
                     Upload Album
                   </li>
                 </Link>
-                <Link to="/admin/album/historyAlbum" className="p-4">
+                <Link to="/album/historyAlbum" className="p-4">
                   <li className="pb-4 pl-4 pt-4 border-b-2 mx-4 hover:bg-[#D3D3D3]">
                     History Album
                   </li>
                 </Link>
               </div>
-              <Link to="/admin/subscriberslist" className="p-4">
+              <Link to="/subscriberslist" className="p-4">
                 <li className="pb-4 pl-4 pt-4 border-b-2 mx-4 hover:bg-[#D3D3D3]">
                   Subscribers list
                 </li>
               </Link>
 
-              <Link to="/admin/writeblog" className="p-4">
+              <Link to="/writeblog" className="p-4">
                 <li className="pb-4 pl-4 pt-4 border-b-2 mx-4 hover:bg-[#D3D3D3]">
                   Write Blog
                 </li>
@@ -158,7 +158,7 @@ export default function Navbars({ sideBar, setSidebar }) {
           <div className="mt-6 text-left">
             <ul>
               <div>
-                <Link to="/admin/" className="p-4">
+                <Link to="/" className="p-4">
                   <li
                     className="pb-4 pl-4 pt-4 border-b-2 mx-4 hover:bg-[#D3D3D3]"
                     onClick={closeHandler}
@@ -177,7 +177,7 @@ export default function Navbars({ sideBar, setSidebar }) {
                   albumClick ? 'ml-5 visible' : 'hiddens'
                 }`}
               >
-                <Link to="/admin/album/uploadAlbum" className="p-4">
+                <Link to="/album/uploadAlbum" className="p-4">
                   <li
                     className="pb-4 pl-4 pt-4 border-b-2 mx-4 hover:bg-[#D3D3D3]"
                     onClick={closeHandler}
@@ -185,7 +185,7 @@ export default function Navbars({ sideBar, setSidebar }) {
                     Upload Album
                   </li>
                 </Link>
-                <Link to="/admin/album/historyAlbum" className="p-4">
+                <Link to="/album/historyAlbum" className="p-4">
                   <li
                     className="pb-4 pl-4 pt-4 border-b-2 mx-4 hover:bg-[#D3D3D3]"
                     onClick={closeHandler}
@@ -194,13 +194,13 @@ export default function Navbars({ sideBar, setSidebar }) {
                   </li>
                 </Link>
               </div>
-              <Link to="/admin/subscriberslist" className="p-4">
+              <Link to="/subscriberslist" className="p-4">
                 <li className="pb-4 pl-4 pt-4 border-b-2 mx-4 hover:bg-[#D3D3D3]">
                   Subscribers list
                 </li>
               </Link>
 
-              <Link to="/admin/writeblog" className="p-4">
+              <Link to="/writeblog" className="p-4">
                 <li className="pb-4 pl-4 pt-4 border-b-2 mx-4 hover:bg-[#D3D3D3]">
                   Write Blog
                 </li>
