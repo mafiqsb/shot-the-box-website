@@ -14,9 +14,9 @@ export default function Center() {
 
   return (
     <div>
-      {/* <ProtectedRoute> */}
-      <Navbars sideBar={sideBar} setSidebar={setSidebar} />
-      {/* </ProtectedRoute> */}
+      <ProtectedRoute>
+        <Navbars sideBar={sideBar} setSidebar={setSidebar} />
+      </ProtectedRoute>
 
       <div className="flex ">
         <div
@@ -30,26 +30,26 @@ export default function Center() {
             <Route
               path="/album/uploadAlbum"
               element={
-                // <ProtectedRoute>
-                <ProductUploadScreens />
-                // </ProtectedRoute>
+                <ProtectedRoute>
+                  <ProductUploadScreens />
+                </ProtectedRoute>
               }
             />
 
             <Route
               path="/album/historyAlbum"
               element={
-                // <ProtectedRoute>
-                <ProductHistoryScreens />
-                // </ProtectedRoute>
+                <ProtectedRoute>
+                  <ProductHistoryScreens />
+                </ProtectedRoute>
               }
             />
             <Route
               path="/subscriberslist"
               element={
-                // <ProtectedRoute>
-                <SubscribersEmail />
-                // </ProtectedRoute>
+                <ProtectedRoute>
+                  <SubscribersEmail />
+                </ProtectedRoute>
               }
             />
 
@@ -58,18 +58,18 @@ export default function Center() {
             <Route
               path="/signup"
               element={
-                // <ProtectedRoute>
-                <SignUp />
-                // </ProtectedRoute>
+                <ProtectedRoute>
+                  <SignUp />
+                </ProtectedRoute>
               }
             />
 
             <Route
               path="/"
               element={
-                // <ProtectedRoute>
-                <HomeScreens />
-                // </ProtectedRoute>
+                <ProtectedRoute>
+                  <HomeScreens />
+                </ProtectedRoute>
               }
             />
           </Routes>
