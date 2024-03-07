@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Center from './Center';
 import SignIn from './components/SignIn';
+import DummySignUp from './components/DummySignUp';
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -20,6 +21,7 @@ function App() {
         <Routes>
           <Route path="*" element={<Center />} />
           <Route path="/signin" element={<SignIn />} />
+          <Route path="/dummysignup" element={<DummySignUp />} />
         </Routes>
       </div>
     </BrowserRouter>

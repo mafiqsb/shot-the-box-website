@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Store } from '../Store';
 
 import { toast } from 'react-toastify';
@@ -115,8 +115,11 @@ export default function SignIn() {
             </button>
           </div>
         </form>
+        <div className="mt-5 flex flex-row mx-auto justify-center">
+          <p className="mr-2">Don't have any account?</p>{' '}
+          <Link to="/dummysignup">Register Here</Link>
+        </div>
       </div>
-      {/* </div> */}
     </div>
   );
 }
