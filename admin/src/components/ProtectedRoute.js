@@ -6,5 +6,5 @@ export default function ProtectedRoute({ children }) {
   const { state } = useContext(Store);
   const { userInfo } = state;
 
-  return userInfo ? children : <Navigate to="/admin/signin" />;
+  return userInfo ? children : <Navigate to="/signin" />;
 }
