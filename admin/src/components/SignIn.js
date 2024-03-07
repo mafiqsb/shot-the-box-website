@@ -32,6 +32,8 @@ export default function SignIn() {
         password,
       });
 
+      console.log(data);
+
       ctxDispatch({ type: 'USER_SIGNIN', payload: data });
       localStorage.setItem('user_info', JSON.stringify(data));
       navigate(redirect || '/admin/');

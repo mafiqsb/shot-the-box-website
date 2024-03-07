@@ -30,7 +30,7 @@ export default function Navbars({ sideBar, setSidebar }) {
   const signoutHandler = () => {
     localStorage.removeItem('user_info');
     ctxDispatch({ type: 'USER_SIGNOUT' });
-    window.location.href = '/signin';
+    window.location.href = '/admin/signin';
   };
 
   return (
