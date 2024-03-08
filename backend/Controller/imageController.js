@@ -8,7 +8,7 @@ const homeScreenImages = async (req, res) => {
 
     res.status(200).send(result);
   } catch (err) {
-    console.error(err); // Log the error for debugging
+    console.error(err);
     res.status(401).send({ message: 'Data not retrieved' });
   }
 };
