@@ -29,6 +29,10 @@ module.exports = {
         type: Sequelize.ARRAY(Sequelize.TEXT),
         allowNull: true,
       },
+      // confirmimages: {
+      //   type: Sequelize.STRING,
+      //   allowNull: false,
+      // },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

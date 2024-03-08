@@ -22,7 +22,7 @@ const createAlbum = async (req, res) => {
     // const moreimages = req.body.moreimages;
     const confirmimages = req.body.confirmimages;
 
-    const result = await ImageDetails.create({
+    const result = await ImageDetails.bulkCreate({
       names,
       images,
       slug,
@@ -30,7 +30,7 @@ const createAlbum = async (req, res) => {
       // moreimages: Sequelize.literal(
       //   `ARRAY[${confirmimages.map((item) => `'${item}'`).join(',')}]::text[]`
       // ),
-
+      // confirmimages,
       confirmimages: Sequelize.literal(
         `ARRAY[${confirmimages.map((item) => `'${item}'`).join(',')}]::text[]`
       ),
@@ -38,7 +38,7 @@ const createAlbum = async (req, res) => {
 
     res
       .status(200)
-      .send({ message: 'Album successfully created', data: result.rows });
+      .send({ message: 'Album successfully created', data: result });
   } catch (err) {
     console.error(err.message); // Log the error message
     console.error(err.stack); // Log the stack trace
