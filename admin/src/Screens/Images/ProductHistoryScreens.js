@@ -381,7 +381,7 @@ export default function ProductHistoryScreens() {
                               whiteSpace: 'nowrap',
                             }}
                           >
-                            {Array.isArray(data.confirmimages) &&
+                            {/* {Array.isArray(data.confirmimages) &&
                               data.confirmimages.length >= 3 &&
                               data.confirmimages.map((img, index) => {
                                 try {
@@ -406,7 +406,34 @@ export default function ProductHistoryScreens() {
                                   );
                                   return null;
                                 }
-                              })}
+                              })} */}
+                            {Array.isArray(data.confirmimages) &&
+                              data.confirmimages.length >= 3 &&
+                              JSON.parse(data.confirmimages).map(
+                                (img, index) => {
+                                  try {
+                                    return (
+                                      <div
+                                        key={index}
+                                        className="mr-2 "
+                                        style={{ display: 'inline-block' }}
+                                      >
+                                        <img
+                                          src={img}
+                                          className="w-8"
+                                          alt={index}
+                                        />
+                                      </div>
+                                    );
+                                  } catch (error) {
+                                    console.error(
+                                      'Error parsing image URL:',
+                                      error
+                                    );
+                                    return null;
+                                  }
+                                }
+                              )}
                           </div>
                         </td>
 
