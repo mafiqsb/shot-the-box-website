@@ -11,7 +11,7 @@ import ArtworksPageScreen from './Screens/Artworks/ArtworksPageScreen';
 
 function App() {
   return (
-    <BrowserRouter basename="/">
+    <BrowserRouter>
       <div className="">
         <div className="w-full absolute z-10 justify-center ">
           <Headers />
