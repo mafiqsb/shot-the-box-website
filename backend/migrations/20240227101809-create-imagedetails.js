@@ -43,3 +43,5 @@ module.exports = {
     await queryInterface.dropTable('imagedetails');
   },
 };
+
+// "homepage": "https://shot-the-box-website.onrender.com/"
