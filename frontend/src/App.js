@@ -11,14 +11,14 @@ import ArtworksPageScreen from './Screens/Artworks/ArtworksPageScreen';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/">
       <div className="">
         <div className="w-full absolute z-10 justify-center ">
           <Headers />
         </div>
         <div className="">
           <Routes>
-            <Route path="*" element={<HomeCenter />} />
+            <Route path="/" element={<HomeCenter />} />
             <Route path="/about" element={<About />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/contact" element={<Contact />} />
