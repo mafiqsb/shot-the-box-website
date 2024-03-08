@@ -22,7 +22,7 @@ const createAlbum = async (req, res) => {
     // const moreimages = req.body.moreimages;
     const confirmimages = req.body.confirmimages;
 
-    const result = await ImageDetails.bulkCreate({
+    const result = await ImageDetails.create({
       names,
       images,
       slug,
