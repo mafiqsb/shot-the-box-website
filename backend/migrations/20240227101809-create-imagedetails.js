@@ -26,7 +26,7 @@ module.exports = {
       //   allowNull: true,
       // },
       confirmimages: {
-        type: Sequelize.ARRAY(Sequelize.TEXT),
+        type: Sequelize.ARRAY,
         allowNull: true,
       },
       // confirmimages: {
