@@ -21,12 +21,12 @@ module.exports = {
       descriptions: {
         type: Sequelize.STRING,
       },
-      moreimages: {
-        type: Sequelize.STRING,
-        allowNull: true,
-      },
+      // moreimages: {
+      //   type: Sequelize.STRING,
+      //   allowNull: true,
+      // },
       confirmimages: {
-        type: Sequelize.STRING,
+        type: Sequelize.ARRAY(Sequelize.TEXT),
         allowNull: true,
       },
       createdAt: {

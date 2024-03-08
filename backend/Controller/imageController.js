@@ -19,7 +19,7 @@ const createAlbum = async (req, res) => {
     const images = req.body.images;
     const slug = req.body.slug;
     const descriptions = req.body.descriptions;
-    const moreimages = req.body.moreimages;
+    // const moreimages = req.body.moreimages;
     const confirmimages = req.body.confirmimages;
 
     const result = await ImageDetails.create({
@@ -27,9 +27,9 @@ const createAlbum = async (req, res) => {
       images,
       slug,
       descriptions,
-      moreimages: Sequelize.literal(
-        `ARRAY[${confirmimages.map((item) => `'${item}'`).join(',')}]::text[]`
-      ),
+      // moreimages: Sequelize.literal(
+      //   `ARRAY[${confirmimages.map((item) => `'${item}'`).join(',')}]::text[]`
+      // ),
 
       confirmimages: Sequelize.literal(
         `ARRAY[${confirmimages.map((item) => `'${item}'`).join(',')}]::text[]`

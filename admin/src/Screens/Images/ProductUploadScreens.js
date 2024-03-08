@@ -176,7 +176,7 @@ export default function ProductUploadScreens() {
           images: result ? result.data.secure_url : '',
           slug: slugUpdated,
           descriptions: descrUpdated,
-          moreimages: imagesUpdated,
+          // moreimages: imagesUpdated,
           confirmimages: data.map((i) => i.secure_url),
         },
         {
