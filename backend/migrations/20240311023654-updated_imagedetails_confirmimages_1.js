@@ -5,7 +5,7 @@ module.exports = {
   async up(queryInterface, Sequelize) {
     return Promise.all([
       queryInterface.changeColumn('imagedetails', 'confirmimages', {
-        type: Sequelize.ARRAY(Sequelize.STRING),
+        type: Sequelize.STRING,
         allowNull: true,
       }),
     ]);
