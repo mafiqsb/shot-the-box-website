@@ -14,7 +14,7 @@
     "dialect": "postgres"
   },
   "production": {
-    "username": "mafiqsb",
+    "username": "stb_database_hu70_user",
     "password": "c1UjGGlNtSGcsz6lr7whVolDa4iz5XXD",
     "database": "stb_database_hu70",
     "host": "dpg-cnn8782cn0vc738hf7d0-a.singapore-postgres.render.com",
