@@ -32,7 +32,7 @@ const createAlbum = async (req, res) => {
       // moreimages: Sequelize.literal(
       //   `ARRAY[${confirmimages.map((item) => `'${item}'`).join(',')}]::text[]`
       // ),
-      // confirmimages,
+
       confirmimages: Sequelize.literal(
         `ARRAY[${confirmimages.map((item) => `'${item}'`).join(',')}]`
       ),
