@@ -115,10 +115,10 @@ export default function SignIn() {
             </button>
           </div>
         </form>
-        {/* <div className="mt-5 flex flex-row mx-auto justify-center">
+        <div className="mt-5 flex flex-row mx-auto justify-center">
           <p className="mr-2">Don't have any account?</p>{' '}
           <Link to="/dummysignup">Register Here</Link>
-        </div> */}
+        </div>
       </div>
     </div>
   );
