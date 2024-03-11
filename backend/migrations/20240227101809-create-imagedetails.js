@@ -26,7 +26,7 @@ module.exports = {
       //   allowNull: true,
       // },
       confirmimages: {
-        type: Sequelize.STRING(1000),
+        type: Sequelize.STRING,
         allowNull: true,
       },
       createdAt: {

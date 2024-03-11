@@ -53,6 +53,7 @@ const upload_images = async (req, res) => {
 
     const results = await Promise.all(uploadPromises);
 
+    console.log(results);
     res.status(200).json(results);
   } catch (error) {
     console.error('Server Error:', error);
