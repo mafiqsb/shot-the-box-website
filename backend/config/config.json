@@ -14,10 +14,10 @@
     "dialect": "postgres"
   },
   "production": {
-    "username": "stb_database_hu70_user",
-    "password": "c1UjGGlNtSGcsz6lr7whVolDa4iz5XXD",
-    "database": "stb_database_hu70",
-    "host": "dpg-cnn8782cn0vc738hf7d0-a.singapore-postgres.render.com",
+    "username": "mafiqsb",
+    "password": "GrtWw3Q6Uqk8sADmAXUAvgn8dnY4noEQ",
+    "database": "stb_database_w4uz",
+    "host": "dpg-cnncq3f109ks73fvqdbg-a.singapore-postgres.render.com",
     "dialect": "postgres",
     "dialectOptions": {
       "ssl": { "require": true, "rejectUnauthorized": false }
