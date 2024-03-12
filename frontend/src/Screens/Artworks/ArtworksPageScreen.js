@@ -47,7 +47,7 @@ export default function ArtworksPageScreen() {
     <div className="">
       {images ? (
         <>
-          <div className="w-full sm:h-60 md:h-80 lg:h-[600px] relative overflow-hidden ">
+          <div className="w-full sm:h-60 md:h-80 lg:h-[600px] relative overflow-hidden">
             <img
               src={images.images}
               alt={images.name}
@@ -60,27 +60,23 @@ export default function ArtworksPageScreen() {
               </p>
             </div>
           </div>
-          <div className="xl:w-[1240px] lg:w-[800px] md:w-[600px]  mx-auto flex flex-col textstwo  md:mt-36 pb-24 mt-24">
-            <div className="gallery">
+          <div className="md:mt-14 mt-8">
+            <div className="columns-1 sm:columns-2 xl:columns-3 [&>img:not(:first-child)]:mt-8">
               {images.confirmimages &&
-                images.confirmimages.map((image, index) => {
-                  try {
-                    // const imageUrl = JSON.parse(image);
-                    return (
-                      <img
-                        src={image}
-                        alt={index}
-                        key={index}
-                        className="pt-2 pb-2 hover:scale-125 duration-300"
-                      />
-                    );
-                  } catch (error) {
-                    console.error('Error parsing image URL:', error);
-                    return null;
-                  }
-                })}
+                images.confirmimages.map((image, index) => (
+                  <div
+                    key={index}
+                    className="lg:w-[500px] md:w-[350px] w-[300px] mx-auto"
+                  >
+                    <img
+                      src={image}
+                      alt={index}
+                      className="object-cover pt-2 pb-2 hover:scale-125 duration-300"
+                    />
+                  </div>
+                ))}
             </div>
-          </div>{' '}
+          </div>
         </>
       ) : (
         <div className="h-screen ">
