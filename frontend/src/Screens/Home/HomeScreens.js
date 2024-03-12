@@ -4,6 +4,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
 
 import data from '../../data.js';
+import { Link } from 'react-router-dom';
 
 export default function HomeScreens() {
   return (
@@ -26,9 +27,11 @@ export default function HomeScreens() {
           </h1>
           <h2 className="text-white xl:text-xl text-2xl mt-3">Shot The Box</h2>
           <div>
-            <button className="bg-transparent text-white py-1 px-2 rounded-full border-solid border-1px border-white font-bold my-6 w-[150px] textstwo text-xl hover:text-black hover:bg-white duration-300">
-              Get In Touch
-            </button>
+            <Link to="/contact">
+              <button className="bg-transparent text-white py-1 px-2 rounded-full border-solid border-1px border-white font-bold my-6 w-[150px] textstwo text-xl hover:text-black hover:bg-white duration-300">
+                Get In Touch
+              </button>
+            </Link>
           </div>
         </div>
       </div>
