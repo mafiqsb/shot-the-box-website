@@ -199,7 +199,6 @@ export default function Navbars({ sideBar, setSidebar }) {
                   Subscribers list
                 </li>
               </Link>
-
               <Link to="/writeblog" className="p-4">
                 <li className="pb-4 pl-4 pt-4 border-b-2 mx-4 hover:bg-[#D3D3D3]">
                   Write Blog
