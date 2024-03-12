@@ -162,13 +162,13 @@ export default function Headers() {
             >
               Artworks
             </Link>
-            <Link
+            {/* <Link
               to="/blog"
               onClick={() => barNavHandler('/about')}
               className="p-4  mx-4 mt-4 border-b"
             >
               Blog
-            </Link>
+            </Link> */}
             <Link
               to="/contact"
               onClick={() => barNavHandler('/about')}
@@ -189,7 +189,7 @@ export default function Headers() {
           </div>
           <h2 className="ml-7 mt-10 text-[15px] w-[70%] texts">
             <span className="text-[20px]">©</span> All images copyrighted by
-            Shot The Box || 2023
+            Shot The Box || 2024
           </h2>
         </div>
       </div>
